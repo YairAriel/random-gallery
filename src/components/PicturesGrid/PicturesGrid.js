@@ -1,15 +1,20 @@
 import React from 'react';
 import SinglePicture from '../SinglePicture/SinglePicture';
+import styled from 'styled-components';
 
 const PicturesGrid = ({picturesList}) => {
 
   return (
-    <div>
+    <Grid>
       {picturesList.map(pic => (
         <SinglePicture key={pic.id} picId={pic.id} author={pic.author} />
       ))}
-    </div>
+    </Grid>
   )
 }
+
+const Grid = styled.div`
+  background: #212121;
+`
 
 export default PicturesGrid;
