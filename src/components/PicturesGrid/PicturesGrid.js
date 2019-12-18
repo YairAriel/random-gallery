@@ -14,7 +14,7 @@ const PicturesGrid = ({picturesList, grayscale}) => {
 }
 
 const Grid = styled.div`
-  
+  margin-top: 1.5em;
 `
 
 export default PicturesGrid;

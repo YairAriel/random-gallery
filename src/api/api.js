@@ -1,7 +1,6 @@
 import axios from 'axios';
 
-const PICTURES_API_URL = 'https://picsum.photos/v2/list';
-
 export const getPictures = () => {
-  return axios.get(PICTURES_API_URL).then(res => res.data);
+  let rand = Math.floor(Math.random() * 15) + 1;
+  return axios.get(`https://picsum.photos/v2/list?page=${rand}`).then(res => res.data);
 }
