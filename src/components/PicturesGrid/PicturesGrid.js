@@ -14,7 +14,7 @@ const PicturesGrid = ({picturesList}) => {
 }
 
 const Grid = styled.div`
-  background: #212121;
+  
 `
 
 export default PicturesGrid;
