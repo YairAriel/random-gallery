@@ -6,7 +6,7 @@ const RefreshBtn = ({onRefreshClicked}) => {
   return (
     <Button onClick={onRefreshClicked}>
       <MaterialIcon icon="sync" color="#fff" size="medium" />
-      Give me something else
+      Refresh Gallery
     </Button>
   )
 }
@@ -14,6 +14,7 @@ const RefreshBtn = ({onRefreshClicked}) => {
 const Button = styled.button`
   display: flex;
   align-items: center;
+  justify-content: space-around;
   font-size: 1.5em;
   padding: .5em 1em;
   margin: .5em auto;
@@ -28,6 +29,9 @@ const Button = styled.button`
   }
   i {
     margin: .2em .2em 0 0;
+  }
+  @media (max-width: 480px) {
+    width: 90vw;
   }
 `
 
