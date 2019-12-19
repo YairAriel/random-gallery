@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const GridPlaceholder = ({noResults}) => {
+const GridPlaceholder = ({noResults, isLoading}) => {
   return (
     <Placeholder>
       {noResults ? <p>No Results</p> : null}
+      {isLoading ? <p>Loading...</p> : null}
     </Placeholder>
   )
 }

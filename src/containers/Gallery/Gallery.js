@@ -10,9 +10,20 @@ import GridPlaceholder from '../../components/GridPlaceholder/GridPlaceholder';
 const Gallery = () => {
   const [pictures, setPictures] = useState(null);
   const [grayscale, setGrayscale] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const fetchData = () => {
+    setLoading(true);
+    getPictures().then(pics => {
+      setPictures(pics);
+      setLoading(false);
+    }).catch(err => 
+      setLoading(false)
+    );
+  }
 
   useEffect(() => {
-    getPictures().then(pics => setPictures(pics));
+    fetchData();
   }, []);
 
   const toggleGrayscale = () => {
@@ -20,7 +31,7 @@ const Gallery = () => {
   }
 
   const refreshHandler = () => {
-    getPictures().then(pics => setPictures(pics));
+    fetchData();
   }
 
   return (
@@ -28,7 +39,8 @@ const Gallery = () => {
       <Header />
       <RefreshBtn onRefreshClicked={refreshHandler} />
       <GrayscaleToggle isGrayscale={grayscale} onToggleGrayscale={toggleGrayscale}/>
-      { pictures ? <PicturesGrid picturesList={pictures} grayscale={grayscale} /> : <GridPlaceholder /> }
+      { pictures ? <PicturesGrid picturesList={pictures} grayscale={grayscale} /> 
+                : <GridPlaceholder isLoading={loading}/> }
     </GalleryView>
   ) 
 }

@@ -10,7 +10,7 @@ const PicturesGrid = ({picturesList, grayscale}) => {
   const [searchResults, setSearchResults] = useState([]);
 
   const searchHandler = e => {
-    setSearchString(e.target.value);
+    setSearchString(e.target.value.toLowerCase());
   }
 
   useEffect(() => {
