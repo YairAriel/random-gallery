@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import MaterialIcon from 'material-icons-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const RefreshBtn = ({onRefreshClicked}) => {
+const RefreshBtn = ({onRefreshClicked, isLoading}) => {
   return (
-    <Button onClick={onRefreshClicked}>
-      <MaterialIcon icon="sync" color="#fff" size="medium" />
+    <Button onClick={onRefreshClicked} disabled={isLoading}>
+      <FontAwesomeIcon icon="sync-alt" className={isLoading ? 'loading' : ''}/>
       Refresh Gallery
     </Button>
   )
@@ -26,12 +26,30 @@ const Button = styled.button`
   outline: none;
   &:hover {
     cursor: pointer;
+    background: #333333;
   }
-  i {
-    margin: .2em .2em 0 0;
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
   }
+  svg {
+    margin: 0 .5em;
+  }
+  .loading {
+    animation: rotation 2s infinite
+  }
+
   @media (max-width: 480px) {
     width: 90vw;
+  }
+
+  @keyframes rotation {
+		from {
+				transform: rotate(0deg);
+		}
+		to {
+				transform: rotate(359deg);
+    }
   }
 `
 

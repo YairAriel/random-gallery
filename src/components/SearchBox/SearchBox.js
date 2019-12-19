@@ -9,7 +9,7 @@ const SearchBox = ({onSearch}) => {
 
 const Search = styled.input`
   width: 22em;
-  border: 4px solid #fff;
+  border: 3px solid #fff;
   border-radius: 3px;
   color: #fff;
   background: #212121;

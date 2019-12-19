@@ -37,7 +37,7 @@ const Gallery = () => {
   return (
     <GalleryView>
       <Header />
-      <RefreshBtn onRefreshClicked={refreshHandler} />
+      <RefreshBtn onRefreshClicked={refreshHandler} isLoading={loading}/>
       <GrayscaleToggle isGrayscale={grayscale} onToggleGrayscale={toggleGrayscale}/>
       { pictures ? <PicturesGrid picturesList={pictures} grayscale={grayscale} /> 
                 : <GridPlaceholder isLoading={loading}/> }
