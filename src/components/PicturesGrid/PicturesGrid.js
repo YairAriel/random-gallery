@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import SearchBox from '../SearchBox/SearchBox';
 import SinglePicture from '../SinglePicture/SinglePicture';
 import styled from 'styled-components';
+import GridPlaceholder from '../GridPlaceholder/GridPlaceholder';
 
 const PicturesGrid = ({picturesList, grayscale}) => {
 
@@ -25,6 +26,7 @@ const PicturesGrid = ({picturesList, grayscale}) => {
       {searchResults.map(pic => (
         <SinglePicture key={pic.id} picId={pic.id} author={pic.author} grayscale={grayscale}/>
       ))}
+      {searchResults.length === 0 ? <GridPlaceholder noResults/> : null}
     </Grid>
   )
 }

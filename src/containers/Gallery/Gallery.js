@@ -5,6 +5,7 @@ import Header from '../../components/Header/Header';
 import RefreshBtn from '../../components/RefreshBtn/RefreshBtn';
 import GrayscaleToggle from '../../components/GrayscaleToggle/GrayscaleToggle';
 import PicturesGrid from '../../components/PicturesGrid/PicturesGrid';
+import GridPlaceholder from '../../components/GridPlaceholder/GridPlaceholder';
 
 const Gallery = () => {
   const [pictures, setPictures] = useState(null);
@@ -27,7 +28,7 @@ const Gallery = () => {
       <Header />
       <RefreshBtn onRefreshClicked={refreshHandler} />
       <GrayscaleToggle isGrayscale={grayscale} onToggleGrayscale={toggleGrayscale}/>
-      { pictures ? <PicturesGrid picturesList={pictures} grayscale={grayscale} /> : null }
+      { pictures ? <PicturesGrid picturesList={pictures} grayscale={grayscale} /> : <GridPlaceholder /> }
     </GalleryView>
   ) 
 }
